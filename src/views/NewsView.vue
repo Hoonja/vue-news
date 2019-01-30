@@ -1,12 +1,26 @@
 <template>
     <div>
-        <p v-for="user in news" :key="user.id">
-            <a v-bind:href="user.url">{{ user.title }}</a>
-            <small>
-                {{ user.time_ago }} by                 
-                <router-link :to="`/user/${user.user}`">{{ user.user }}</router-link>
-            </small>
-        </p>
+        <ul class="news-list">
+            <li v-for="item in news" :key="item.id" class="post">
+                <div class="points">
+                    {{ item.points }}
+                </div>
+                <div>
+                    <p class="news-title">
+                        <a v-bind:href="item.url">{{ item.title }}</a>
+                    </p>
+                    <small class="link-text">
+                        by 
+                        <router-link :to="`/user/${item.user}`" class="link-text">{{ item.user }}</router-link>
+                    </small>
+                </div>
+                <!-- <a v-bind:href="item.url">{{ item.title }}</a>
+                <small>
+                    {{ item.time_ago }} by                 
+                    <router-link :to="`/item/${item.user}`">{{ item.user }}</router-link>
+                </small> -->
+            </li>
+        </ul>
     </div>    
 </template>
 
@@ -25,6 +39,29 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.news-list {
+    margin: 0;
+    padding: 0;
+}
+.post {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+}
+.points {
+    width: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #42b883;
+}
+.news-title {
+    margin: 0;
+}
+.link-text {
+    color: #828282;
+}
 </style>
