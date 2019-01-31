@@ -24,10 +24,15 @@ const fetchItemInfo = id => {
     return axios.get(`${config.baseUrl}item/${id}.json`)
 }
 
+const fetchList = pageName => {
+    return axios.get(`${config.baseUrl}${pageName}/1.json`)
+}
+
 export {
     fetchNewsList,
     fetchAskList,
     fetchJobsList,
     fetchUserInfo,
-    fetchItemInfo
+    fetchItemInfo,
+    fetchList
 }

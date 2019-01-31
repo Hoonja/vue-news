@@ -29,30 +29,9 @@
 export default {
     computed: {
         items() {
-            const name = this.$route.name
-            if (name === 'news') {
-                return this.$store.state.news
-            } else if (name === 'ask') {
-                return this.$store.state.asks
-            } else if (name === 'jobs') {
-                return this.$store.state.jobs
-            } else {
-                return null
-            }
+            return this.$store.state.list;
         }
     },
-    // created() {
-    //     const name = this.$route.name
-    //     if (name === 'news') {
-    //         this.$store.dispatch('FETCH_NEWS')
-    //     } else if (name === 'ask') {
-    //         this.$store.dispatch('FETCH_ASK')
-    //     } else if (name === 'jobs') {
-    //         this.$store.dispatch('FETCH_JOBS')
-    //     } else {
-    //         throw new ErrorEvent('지원하지 않는 경로에 대해서는 목록을 작성할 수 없음')
-    //     }
-    // },
 }
 </script>
 

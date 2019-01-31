@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import ListItem from '../components/ListItem';
-
+import ListItem from '../components/ListItem'
 export default {
     components: {
-        ListItem,
-    },
-    created() {
-        this.$store.dispatch('FETCH_JOBS')
+        ListItem
     },
 }
 </script>
+
+<style>
+
+</style>
