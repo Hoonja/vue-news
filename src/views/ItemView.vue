@@ -1,17 +1,14 @@
 <template>
     <div>
         <section>
-            <div class="user-container">
-                <div>
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-description">
+            <user-profile :info="item">
+                <div slot="username">
                     <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link>
-                    <div class="time">
-                        {{ item.time_ago }}
-                    </div>
                 </div>                
-            </div>
+                <template slot="time">{{ 'Posted ' + item.time_ago }}</template>
+            </user-profile>          
+        </section>
+        <section>
             <h2>{{ item.title }}</h2>
         </section>
         <section>
@@ -22,8 +19,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import UserProfile from '../components/UserProfile'
 
 export default {
+    components: {
+        UserProfile
+    },
     computed: {
         // item() {
         //     return this.$store.state.item
