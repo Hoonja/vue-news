@@ -3,16 +3,41 @@
     <tool-bar></tool-bar>
     <transition name="page">
       <router-view></router-view>
-    </transition>    
+    </transition>  
+    <spinner :loading="loadingStatus"></spinner>  
   </div>
 </template>
 
 <script>
 import ToolBar from './components/ToolBar'
+import Spinner from './components/Spinner'
+import Bus from './utils/bus.js'
 
 export default {
   components: {
     ToolBar,
+    Spinner
+  },
+  data() {
+    return {
+      loadingStatus: false
+    }
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true
+    },
+    stopSpinner() {
+      this.loadingStatus = false
+    }
+  },
+  created() {
+    Bus.$on('start:spinner', this.startSpinner)
+    Bus.$on('stop:spinner', this.stopSpinner)
+  },
+  beforeDestroy() {
+    Bus.$off('start:spinner', this.startSpinner)
+    Bus.$off('end:spinner', this.endSpinner)
   }
 }
 </script>

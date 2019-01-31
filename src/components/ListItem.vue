@@ -41,18 +41,18 @@ export default {
             }
         }
     },
-    created() {
-        const name = this.$route.name
-        if (name === 'news') {
-            this.$store.dispatch('FETCH_NEWS')
-        } else if (name === 'ask') {
-            this.$store.dispatch('FETCH_ASK')
-        } else if (name === 'jobs') {
-            this.$store.dispatch('FETCH_JOBS')
-        } else {
-            throw new ErrorEvent('지원하지 않는 경로에 대해서는 목록을 작성할 수 없음')
-        }
-    },
+    // created() {
+    //     const name = this.$route.name
+    //     if (name === 'news') {
+    //         this.$store.dispatch('FETCH_NEWS')
+    //     } else if (name === 'ask') {
+    //         this.$store.dispatch('FETCH_ASK')
+    //     } else if (name === 'jobs') {
+    //         this.$store.dispatch('FETCH_JOBS')
+    //     } else {
+    //         throw new ErrorEvent('지원하지 않는 경로에 대해서는 목록을 작성할 수 없음')
+    //     }
+    // },
 }
 </script>
 
