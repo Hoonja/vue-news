@@ -37,7 +37,7 @@ export default {
   },
   beforeDestroy() {
     Bus.$off('start:spinner', this.startSpinner)
-    Bus.$off('end:spinner', this.endSpinner)
+    Bus.$off('stop:spinner', this.endSpinner)
   }
 }
 </script>
